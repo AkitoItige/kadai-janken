@@ -44,7 +44,7 @@ while result == "あいこ"
     else
         result = "あいこ"
     end
-    puts "あなたの#{result}です。"
+    puts result
 end
 puts "------------------------------------"
 if result == "勝ち"
