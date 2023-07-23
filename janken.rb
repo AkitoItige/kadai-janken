@@ -4,7 +4,7 @@ DIRECTIONS = ["上", "右", "左", "下"]
 result = "あいこ"
 while result == "あいこ"
     puts "じゃんけん..."
-    puts "グー(0)、チョキ(1)、パー(2)、戦わない(3)"
+    puts "0(グー)、1(チョキ)、2(パー)、3(戦わない)"
     my_choice = gets.chomp!
     if my_choice.match?(/^\d+$/) == false
         puts "無効な入力値です。",
@@ -22,40 +22,35 @@ while result == "あいこ"
         "ゲームを終了します。"
         return
     end
+    puts "ポン！"
     my_hand = HANDS[my_choice]
     computer_choice = rand(3)  # コンピュータの手をランダムに選択
     computer_hand = HANDS[computer_choice]
     puts "------------------------------------",
-    "あなたの手: #{my_hand}",
-    "コンピュータの手: #{computer_hand}"
+    "あなた: #{my_hand}を出しました",
+    "相手: #{computer_hand}を出しました"
     if my_hand == "グー" && computer_hand == "チョキ"
         result = "勝ち"
-        puts result
     elsif my_hand == "チョキ" && computer_hand == "パー"
         result = "勝ち"
-        puts result
     elsif my_hand == "パー" && computer_hand == "グー"
         result = "勝ち"
-        puts result
     elsif my_hand == "グー" && computer_hand == "パー"
         result = "負け"
-        puts result
     elsif my_hand == "チョキ" && computer_hand == "グー"
         result = "負け"
-        puts result
     elsif my_hand == "パー" && computer_hand == "チョキ"
         result = "負け"
-        puts result
     else
         result = "あいこ"
-        puts result
     end
+    puts "あなたの#{result}です。"
 end
 puts "------------------------------------"
 if result == "勝ち"
     puts "あなた：あっち向いて・・・",
     "(指を指す方向を選んでください)",
-    "上(0)、右(1)、左(2)、下(3)"
+    "0(上)、1(右)、2(左)、3(下)"
     my_choice = gets.chomp!
     if my_choice.match?(/^\d+$/) == false
         puts "無効な入力値です。",
@@ -71,19 +66,19 @@ if result == "勝ち"
     my_direction = DIRECTIONS[my_choice]
     computer_choice = rand(4)
     computer_direction = DIRECTIONS[computer_choice]
-    puts "ほい！",
+    puts "ホイ!",
     "------------------------------------",
-    "あなたの向き: #{my_direction}",
-    "コンピューターの向き: #{computer_direction}"
+    "あなた: #{my_direction}",
+    "相手: #{computer_direction}"
     if my_direction == computer_direction
         puts "あなたの勝ちです！"
     else
         puts "引き分け！"
     end
 elsif result == "負け"
-    puts "コンピュータ：あっち向いて・・・",
-    "(顔の向きを選んでください)",
-    "上(0)、右(1)、左(2)、下(3)"
+    puts "相手：あっち向いて・・・",
+    "(顔を向ける方向を選んでください)",
+    "0(上)、1(右)、2(左)、3(下)"
     my_choice = gets.chomp!
     if my_choice.match?(/^\d+$/) == false
         puts "無効な入力値です。",
@@ -99,10 +94,10 @@ elsif result == "負け"
     my_direction = DIRECTIONS[my_choice]
     computer_choice = rand(4)
     computer_direction = DIRECTIONS[computer_choice]
-    puts "ほい！",
+    puts "ホイ！",
     "------------------------------------",
-    "あなたの向き: #{my_direction}",
-    "コンピューターの向き: #{computer_direction}"
+    "あなた: #{my_direction}",
+    "相手: #{computer_direction}"
     if my_direction == computer_direction
         puts "あなたの負けです・・・"
     else
